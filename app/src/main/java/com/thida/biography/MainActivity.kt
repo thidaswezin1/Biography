@@ -2,7 +2,6 @@ package com.thida.biography
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
@@ -24,23 +23,22 @@ class MainActivity : AppCompatActivity() {
         //setupViewPager(viewPager)
         //tabLayout.setupWithViewPager(viewPager)
 
-
-        val adapter = MyAdapter(this, supportFragmentManager, tabLayout.tabCount)
-        viewPager.adapter = adapter
+        val adapter1 = MyAdapter(this, supportFragmentManager, tabLayout.tabCount)
+        viewPager.adapter = adapter1
 
         viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
 
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        tabLayout.addOnTabSelectedListener(object :TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {
-                viewPager.currentItem = tab!!.position
+
             }
 
             override fun onTabUnselected(p0: TabLayout.Tab?) {
 
             }
 
-            override fun onTabSelected(p0: TabLayout.Tab?) {
-
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                viewPager.currentItem = tab!!.position
             }
 
         })

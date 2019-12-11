@@ -5,21 +5,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class MyAdapter(private val myContext: Context, fm: FragmentManager, private var totalTabs: Int) : FragmentPagerAdapter(fm) {
+class MyAdapter(private val myContext: Context, fm: FragmentManager, private var totalTabs: Int) : FragmentPagerAdapter(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     // this is for fragment tabs
     override fun getItem(position: Int): Fragment {
-        when (position) {
-            0 -> {
-                return FamilyFragment()
-            }
-            1 -> {
-                return EducationFragment()
-            }
-            2 -> {
-                return ExperienceFragment()
-            }
-           else -> return FamilyFragment()
+        return when (position) {
+            0 -> FamilyFragment()
+            1 -> EducationFragment()
+            2 -> ExperienceFragment()
+            else -> FamilyFragment()
         }
     }
 
