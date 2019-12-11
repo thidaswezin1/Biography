@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Biography</string>
+    <string name="family">Family</string>
+    <string name="education">Education</string>
+    <string name="experience">Experience</string>
+    <string name="search">Search</string>
+</resources>
